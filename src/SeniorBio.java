@@ -37,4 +37,17 @@ public class SeniorBio extends JuniorScience {
         double actualBioGrade = super.calculateActualBioGrade(weightedBioGrade, this.weightPercentBio);
         return actualBioGrade + this.predictionDifference;
     }
+
+    protected double examGradeNeeded(int bioGrade, double examWeightPercent, int finalGoal) {
+        double classWeightPercent = 100 - examWeightPercent;
+        double weightedBioGrade = bioGrade * (classWeightPercent / 100);
+        return (finalGoal - weightedBioGrade) / (examWeightPercent / 100);
+    }
+
+    protected double finalGrade(int bioGrade, double examWeightPercent, double examGrade) {
+        double classWeightPercent = 100 - examWeightPercent;
+        double weightedBioGrade = bioGrade * (classWeightPercent / 100);
+        double weightedExamGrade = examGrade * (examWeightPercent / 100);
+        return weightedBioGrade + weightedExamGrade;
+    }
 }

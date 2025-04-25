@@ -126,6 +126,7 @@ public class JuniorScience {
      */
     protected double calculateActualBioGrade(double weightedBioGrade, double weightPercentBio) {
         // calculates bio grade out of 100 (out of bio unit)
+        weightDecimalBio = weightPercentBio / 100;
         return weightedBioGrade / weightDecimalBio;
     }
 
@@ -138,6 +139,7 @@ public class JuniorScience {
     }
 
     protected double calculateActualChemGrade(double weightedChemGrade, double weightPercentChem) {
+        weightDecimalChem = weightPercentChem / 100;
         return weightedChemGrade / weightDecimalChem;
     }
 
@@ -150,6 +152,7 @@ public class JuniorScience {
     }
 
     protected double calculateActualPhysGrade(double weightedPhysGrade, double weightPercentPhys) {
+        weightDecimalPhys = weightPercentPhys / 100;
         return weightedPhysGrade / weightDecimalPhys;
     }
 }
