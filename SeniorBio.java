@@ -1,9 +1,19 @@
+/**
+ * SeniorBio class, extends JuniorScience. Grade calculator for biology course.
+ * 
+ * @author Stephanie Hu
+ * @version 0.03 - April 2025
+ */
 public class SeniorBio extends JuniorScience {
+    /** Grade in biology. */
     protected int bioGrade;
+
+    /** Predicted difference between junior biology grade and biology course. */
     protected int predictionDifference = 0;
 
+    /** Default constructor. */
     protected SeniorBio() {
-        super(100);
+        super(100); // default science grade is 100
         this.bioGrade = 100;
     }
 
@@ -33,8 +43,8 @@ public class SeniorBio extends JuniorScience {
     }
 
     protected double predictedBioGrade() { // projected/predicted bio grade from junior science
-        double weightedBioGrade = super.calculateWeightedBioGrade(this.grade, this.weightPercentBio);
-        double actualBioGrade = super.calculateActualBioGrade(weightedBioGrade, this.weightPercentBio);
-        return actualBioGrade + this.predictionDifference;
+        double weightedBioGrade = super.calculateWeightedBioGrade(grade, weightPercentBio);
+        double actualBioGrade = super.calculateActualBioGrade(weightedBioGrade, weightPercentBio);
+        return actualBioGrade + predictionDifference;
     }
 }
