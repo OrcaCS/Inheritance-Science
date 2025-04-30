@@ -23,6 +23,8 @@ public class SeniorPhys extends JuniorScience {
     /**
      * Constructor for chosen junior science grade and default 100 for physics
      * grade.
+     * 
+     * @param grade This is the science grade.
      */
     public SeniorPhys(int grade) {
         super(grade);
@@ -32,6 +34,9 @@ public class SeniorPhys extends JuniorScience {
     /**
      * Constructor for chosen junior science grade and default 100 for physics
      * grade.
+     * 
+     * @param grade     This is the science grade.
+     * @param physGrade This is the grade for physics.
      */
     public SeniorPhys(int grade, int physGrade) {
         super(grade);
@@ -51,7 +56,7 @@ public class SeniorPhys extends JuniorScience {
      * Gets prediction difference.
      * 
      * @return This method returns the predicted difference between junior
-     *         science biology unit grade and biology course.
+     *         science physics unit grade and physics course.
      */
     protected int getPrediction() {
         return predictionDifference;
@@ -70,13 +75,14 @@ public class SeniorPhys extends JuniorScience {
      * Sets prediction difference.
      * 
      * @param predictionDifference This is the predicted difference between junior
-     *                             science biology unit grade and biology course.
+     *                             science physics unit grade and physics course.
      */
     protected void setPrediction(int predictionDifference) {
         this.predictionDifference = predictionDifference;
     }
 
-    /** Predicts physics course grade using physics midterm marks.
+    /**
+     * Predicts physics course grade using physics midterm marks.
      * 
      * @return This is the predicted physics grade.
      */
@@ -84,7 +90,8 @@ public class SeniorPhys extends JuniorScience {
         return this.physGrade + this.predictionDifference;
     }
 
-    /** Predicts physics course grade using junior science physics unit grade.
+    /**
+     * Predicts physics course grade using junior science physics unit grade.
      * 
      * @return This is the predicted physics grade.
      */
