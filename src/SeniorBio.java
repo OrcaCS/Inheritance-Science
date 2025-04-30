@@ -20,9 +20,9 @@ public class SeniorBio extends JuniorScience {
         this.bioGrade = 100;
     }
 
-    /**
-     * Constructor for chosen junior science grade and default 100 for biology
-     * grade.
+    /** Constructor for chosen junior science grade and default 100 for biology grade.
+     * 
+     * @param grade This is the science grade.
      */
     public SeniorBio(int grade) {
         super(grade);
