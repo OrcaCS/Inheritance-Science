@@ -33,6 +33,6 @@ public class UniversityPhys extends SeniorPhys {
 
     /** Prints requirements for University of Waterloo physics program. */
     protected void uWaterlooPhysicsRequirements() {
-        System.out.println("Six U/M courses, including:\nEnglish (ENG4U), minimum 70%;\nAdvanced Functions, minimum 70%; Calculus & Vectors, minimum 70%,\nTwo of Biology, Chemistry, Earth and Space Science, Mathematics of Data Management, or Physics");
+        System.out.println("Six U/M courses, including:\nEnglish (ENG4U), minimum 70%;\nAdvanced Functions, minimum 70%;\nCalculus & Vectors, minimum 70%;\nTwo of Biology, Chemistry, Earth and Space Science, Mathematics of Data Management, or Physics");
     }
 }
