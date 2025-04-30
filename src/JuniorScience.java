@@ -2,7 +2,7 @@
 * Grade calculator for junior science courses with biology, chemistry, and physics.
 *
 * @author Stephanie Hu
-* @version 0.03 - April 2025
+* @version 0.04 - April 2025
 */
 public class JuniorScience {
     /** Grade in junior science course. */
