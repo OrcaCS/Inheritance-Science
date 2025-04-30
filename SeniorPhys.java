@@ -5,8 +5,8 @@
  * @version 0.03 - April 2025
  */
 public class SeniorPhys extends JuniorScience {
-    /** Grade in biology. */
-    protected int bioGrade;
+    /** Grade in physics. */
+    protected int physGrade;
 
     /** Predicted difference between junior science physics unit grade and physics course. */
     protected int predictionDifference = 0;
@@ -14,18 +14,18 @@ public class SeniorPhys extends JuniorScience {
     /** Constructor for perfect grades. */
     protected SeniorPhys() {
         super(100); // default science grade is 100
-        this.bioGrade = 100;
+        this.physGrade = 100;
     }
 
     /** Constructor for chosen junior science grade and default 100 for physics grade. */
     public SeniorPhys(int grade) {
         super(grade);
-        this.bioGrade = 100;
+        this.physGrade = 100;
     }
 
     /** Gets physics grade. */
     protected int getPhysGrade() {
-        return bioGrade;
+        return physGrade;
     }
 
     /** Gets prediction difference. */
@@ -34,8 +34,8 @@ public class SeniorPhys extends JuniorScience {
     }
 
     /** Sets physics grade. */
-    protected void setPhysGrade(int bioGrade) {
-        this.bioGrade = bioGrade;
+    protected void setPhysGrade(int physGrade) {
+        this.physGrade = physGrade;
     }
 
     /** Sets prediction difference. */
@@ -45,7 +45,7 @@ public class SeniorPhys extends JuniorScience {
 
     /** Predicts physics course grade using physics midterm marks. */
     protected int predictedPhysGradeMidterm() { // projected/predicted phys grade from midterm
-        return this.bioGrade + this.predictionDifference;
+        return this.physGrade + this.predictionDifference;
     }
 
     /** Predicts physics course grade using junior science physics unit grade. */
@@ -53,5 +53,20 @@ public class SeniorPhys extends JuniorScience {
         double weightedPhysGrade = super.calculateWeightedPhysGrade(grade, weightPercentPhys);
         double actualPhysGrade = super.calculateActualPhysGrade(weightedPhysGrade, weightPercentPhys);
         return actualPhysGrade + predictionDifference;
+    }
+
+    /** Calculates the physics exam grade required for a final grade goal. */
+    protected double examGradeNeeded(int physGrade, double examWeightPercent, int finalGoal) {
+        double classWeightPercent = 100 - examWeightPercent;
+        double weightedPhysGrade = physGrade * (classWeightPercent / 100);
+        return (finalGoal - weightedPhysGrade) / (examWeightPercent / 100);
+    }
+
+    /** Calculates the final physics grade using the grade before exam and hypothetical exam grade. */
+    protected double finalGrade(int physGrade, double examWeightPercent, double examGrade) {
+        double classWeightPercent = 100 - examWeightPercent;
+        double weightedPhysGrade = physGrade * (classWeightPercent / 100);
+        double weightedExamGrade = examGrade * (examWeightPercent / 100);
+        return weightedPhysGrade + weightedExamGrade;
     }
 }
