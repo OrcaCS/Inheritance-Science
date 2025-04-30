@@ -45,7 +45,7 @@ public class SeniorChem extends JuniorScience {
      * Gets prediction difference.
      * 
      * @return This method returns the predicted difference between junior
-     *         science biology unit grade and biology course.
+     *         science chemistry unit grade and chemistry course.
      */
     protected int getPrediction() {
         return predictionDifference;
@@ -60,7 +60,13 @@ public class SeniorChem extends JuniorScience {
         this.chemGrade = chemGrade;
     }
 
-    /** Sets prediction difference. */
+    /**
+     * Sets prediction difference.
+     * 
+     * @param predictionDifference This is the predicted difference between junior
+     *                             science chemistry unit grade and chemistry
+     *                             course.
+     */
     protected void setPrediction(int predictionDifference) {
         this.predictionDifference = predictionDifference;
     }
