@@ -2,7 +2,7 @@
  * SeniorBio class, extends JuniorScience. Grade calculator for biology course.
  * 
  * @author Stephanie Hu
- * @version 0.03 - April 2025
+ * @version 0.04 - April 2025
  */
 public class SeniorBio extends JuniorScience {
     /** Grade in biology. */
