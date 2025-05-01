@@ -71,7 +71,11 @@ public class SeniorChem extends JuniorScience {
         this.predictionDifference = predictionDifference;
     }
 
-    /** Predicts chemistry course grade using chemistry midterm marks. */
+    /**
+     * Predicts chemistry course grade using chemistry midterm grades
+     * 
+     * @return This method returns the predicted chemistry grade.
+     */
     protected int predictedChemGradeMidterm() { // projected/predicted chem grade from midterm
         return this.chemGrade + this.predictionDifference;
     }
