@@ -2,13 +2,16 @@
  * SeniorBio class, extends JuniorScience. Grade calculator for biology course.
  * 
  * @author Stephanie Hu
- * @version 0.03 - April 2025
+ * @version 0.04 - April 2025
  */
 public class SeniorBio extends JuniorScience {
     /** Grade in biology. */
     protected int bioGrade;
 
-    /** Predicted difference between junior science biology unit grade and biology course. */
+    /**
+     * Predicted difference between junior science biology unit grade and biology
+     * course.
+     */
     protected int predictionDifference = 0;
 
     /** Constructor for perfect grades. */
@@ -17,52 +20,96 @@ public class SeniorBio extends JuniorScience {
         this.bioGrade = 100;
     }
 
-    /** Constructor for chosen junior science grade and default 100 for biology grade. */
+    /**
+     * Constructor for chosen junior science grade and default 100 for biology
+     * grade.
+     * 
+     * @param grade This is the science grade.
+     */
     public SeniorBio(int grade) {
         super(grade);
         this.bioGrade = 100;
     }
 
-    /** Gets biology grade. */
+    /**
+     * Gets biology grade.
+     * 
+     * @return This method returns the grade for biology.
+     */
     protected int getBioGrade() {
         return bioGrade;
     }
 
-    /** Gets prediction difference. */
+    /**
+     * Gets prediction difference.
+     * 
+     * @return This method returns the predicted difference between junior science
+     *         biology unit grade and biology course.
+     */
     protected int getPrediction() {
         return predictionDifference;
     }
 
-    /** Sets biology grade. */
+    /**
+     * Sets biology grade.
+     * 
+     * @param bioGrade This is the grade in biology.
+     */
     protected void setBioGrade(int bioGrade) {
         this.bioGrade = bioGrade;
     }
 
-    /** Sets prediction difference. */
+    /**
+     * Sets prediction difference.
+     * 
+     * @param predictionDifference This is the predicted difference between junior
+     *                             science biology unit grade and biology course.
+     */
     protected void setPrediction(int predictionDifference) {
         this.predictionDifference = predictionDifference;
     }
 
-    /** Predicts biology course grade using biology midterm marks. */
+    /**
+     * Predicts biology course grade using biology midterm marks.
+     * 
+     * @return This method returns the predicted biology grade.
+     */
     protected int predictedBioGradeMidterm() { // projected/predicted bio grade from midterm
         return this.bioGrade + this.predictionDifference;
     }
 
-    /** Predicts biology course grade using junior science biology unit grade. */
+    /**
+     * Predicts biology course grade using junior science biology grade.
+     * 
+     * @return This method returns the predicted biology grade.
+     */
     protected double predictedBioGrade() { // projected/predicted bio grade from junior science
-        double weightedBioGrade = super.calculateWeightedBioGrade(grade, weightPercentBio);
-        double actualBioGrade = super.calculateActualBioGrade(weightedBioGrade, weightPercentBio);
+        double actualBioGrade = super.calculateActualBioGrade();
         return actualBioGrade + predictionDifference;
     }
 
-    /** Calculates the biology exam grade required for a final grade goal. */
+    /**
+     * Calculates the biology exam grade required for a final grade goal.
+     * 
+     * @param bioGrade          This is the grade in biology.
+     * @param examWeightPercent This is the weight of the exam in percent.
+     * @param finalGoal         This is the user-inputted grade goal.
+     * @return This method returns the exam grade needed to reach the grade goal.
+     */
     protected double examGradeNeeded(int bioGrade, double examWeightPercent, int finalGoal) {
         double classWeightPercent = 100 - examWeightPercent;
         double weightedBioGrade = bioGrade * (classWeightPercent / 100);
         return (finalGoal - weightedBioGrade) / (examWeightPercent / 100);
     }
 
-    /** Calculates the final biology grade using the grade before exam and hypothetical exam grade. */
+    /**
+     * Calculates the final grade from grade before exam and theoretical exam grade.
+     * 
+     * @param bioGrade          This is the grade in biology.
+     * @param examWeightPercent This is the weight of the exam in percent.
+     * @param examGrade         This is the exam grade.
+     * @return This method returns the final grade.
+     */
     protected double finalGrade(int bioGrade, double examWeightPercent, double examGrade) {
         double classWeightPercent = 100 - examWeightPercent;
         double weightedBioGrade = bioGrade * (classWeightPercent / 100);
