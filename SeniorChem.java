@@ -1,14 +1,18 @@
 /**
- * SeniorChem class, extends JuniorScience. Grade calculator for chemistry course.
+ * SeniorChem class, extends JuniorScience. Grade calculator for chemistry
+ * course.
  * 
  * @author Stephanie Hu
- * @version 0.03 - April 2025
+ * @version 0.04 - April 2025
  */
 public class SeniorChem extends JuniorScience {
     /** Grade in chemistry. */
     protected int chemGrade;
 
-    /** Predicted difference between junior science chemistry unit grade and chemistry course. */
+    /**
+     * Predicted difference between junior science chemistry unit grade and
+     * chemistry course.
+     */
     protected int predictionDifference = 0;
 
     /** Constructor for perfect grades. */
@@ -17,52 +21,97 @@ public class SeniorChem extends JuniorScience {
         this.chemGrade = 100;
     }
 
-    /** Constructor for chosen junior science grade and default 100 for chemistry grade. */
+    /**
+     * Constructor for chosen junior science grade and default 100 for chemistry
+     * grade.
+     * 
+     * @param grade This is the grade in junior science course.
+     */
     public SeniorChem(int grade) {
         super(grade);
         this.chemGrade = 100;
     }
 
-    /** Gets chemistry grade. */
+    /**
+     * Gets chemistry grade.
+     * 
+     * @return This method returns the chemistry grade.
+     */
     protected int getChemGrade() {
         return chemGrade;
     }
 
-    /** Gets prediction difference. */
+    /**
+     * Gets prediction difference.
+     * 
+     * @return This method returns the predicted difference between junior
+     *         science chemistry unit grade and chemistry course.
+     */
     protected int getPrediction() {
         return predictionDifference;
     }
 
-    /** Sets chemistry grade. */
+    /**
+     * Sets chemistry grade.
+     * 
+     * @param chemGrade This is the chemistry grade.
+     */
     protected void setChemGrade(int chemGrade) {
         this.chemGrade = chemGrade;
     }
 
-    /** Sets prediction difference. */
+    /**
+     * Sets prediction difference.
+     * 
+     * @param predictionDifference This is the predicted difference between junior
+     *                             science chemistry unit grade and chemistry
+     *                             course.
+     */
     protected void setPrediction(int predictionDifference) {
         this.predictionDifference = predictionDifference;
     }
 
-    /** Predicts chemistry course grade using chemistry midterm marks. */
+    /**
+     * Predicts chemistry course grade using chemistry midterm grades
+     * 
+     * @return This method returns the predicted chemistry grade.
+     */
     protected int predictedChemGradeMidterm() { // projected/predicted chem grade from midterm
         return this.chemGrade + this.predictionDifference;
     }
 
-    /** Predicts chemistry course grade using junior science chemistry unit grade. */
+    /**
+     * Predicts chemistry course grade using junior science chemistry unit grade.
+     * 
+     * @return This method returns the predicted chemistry grade.
+     */
     protected double predictedChemGrade() { // projected/predicted chem grade from junior science
-        double weightedChemGrade = super.calculateWeightedChemGrade(grade, weightPercentChem);
-        double actualChemGrade = super.calculateActualChemGrade(weightedChemGrade, weightPercentChem);
+        double actualChemGrade = super.calculateActualChemGrade();
         return actualChemGrade + predictionDifference;
     }
 
-    /** Calculates the chemistry exam grade required for a final grade goal. */
+    /**
+     * Calculates the chemistry exam grade required for a final grade goal.
+     * 
+     * @param chemGrade         This is the grade in chemistry.
+     * @param examWeightPercent This is the weight of the exam in percent.
+     * @param finalGoal         This is the user-inputted grade goal.
+     * @return This method returns the exam grade needed to reach the grade goal.
+     */
     protected double examGradeNeeded(int chemGrade, double examWeightPercent, int finalGoal) {
         double classWeightPercent = 100 - examWeightPercent;
         double weightedChemGrade = chemGrade * (classWeightPercent / 100);
         return (finalGoal - weightedChemGrade) / (examWeightPercent / 100);
     }
 
-    /** Calculates the final chemistry grade using the grade before exam and hypothetical exam grade. */
+    /**
+     * Calculates the final grade from grade before exam and theoretical exam grade.
+     * 
+     * @param chemGrade         This is the grade in chemistry.
+     * @param examWeightPercent This is the weight of the exam in percent.
+     * @param examGrade         This is the exam grade.
+     * @return This method returns the final grade.
+     */
     protected double finalGrade(int chemGrade, double examWeightPercent, double examGrade) {
         double classWeightPercent = 100 - examWeightPercent;
         double weightedChemGrade = chemGrade * (classWeightPercent / 100);
